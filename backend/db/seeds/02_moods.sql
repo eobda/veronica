@@ -1,17 +1,17 @@
 INSERT INTO
-  moods (name, user_id, created_at)
+  moods (name, user_id, date_added)
 VALUES
   (
     'happy',
     1,
-    "2024-04-01 00:00:00"
+    CURRENT_TIMESTAMP
   );
 
 INSERT INTO
-  moods (name, user_id, created_at)
+  moods (name, user_id, date_added)
 VALUES
   (
     'tired',
     1,
-    "2024-04-02 00:00:00"
+    CURRENT_TIMESTAMP
   );
