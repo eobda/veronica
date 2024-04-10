@@ -12,7 +12,7 @@ function MoodForm() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
-  const today = new Date();
+  const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
   return (
     <>
