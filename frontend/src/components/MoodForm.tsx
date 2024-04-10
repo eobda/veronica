@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 type Inputs = {
   name: string
@@ -6,14 +6,18 @@ type Inputs = {
 
 function MoodForm() {
   const {
-    register
+    register,
+    handleSubmit
   } = useForm<Inputs>()
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label>Today I feel</label>
         <input {...register('name')} />
+        <button type="submit">Enter</button>
       </form>
     </>
   )
