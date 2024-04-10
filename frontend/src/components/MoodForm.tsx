@@ -12,10 +12,12 @@ function MoodForm() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
+  const today = new Date();
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Today I feel</label>
+        <label>Today is {`${today}`}. I feel</label>
         <input {...register('name', { required: 'Enter your mood', maxLength: 255 })} />
         <button type="submit">Enter</button>
       </form>
