@@ -4,7 +4,8 @@
   "description": "a simple mood tracking app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:reset": "node bin/resetdb.js"
   },
   "author": "Maddie Lee",
   "license": "ISC",
