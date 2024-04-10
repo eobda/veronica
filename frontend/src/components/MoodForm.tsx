@@ -1,7 +1,20 @@
+import { useForm } from "react-hook-form"
+
+type Inputs = {
+  name: string
+}
+
 function MoodForm() {
+  const {
+    register
+  } = useForm<Inputs>()
+
   return (
     <>
-      <h1>Mood Form</h1>
+      <form>
+        <label>Today I feel</label>
+        <input {...register('name')} />
+      </form>
     </>
   )
 }
