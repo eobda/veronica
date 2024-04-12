@@ -11,7 +11,8 @@ router.post("/", async (req, res) => {
     newMood.date_added = new Date();
 
     await addMood(newMood);
-    res.status(201).send;
+    console.log('Mood added');
+    res.status(201).send();
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
