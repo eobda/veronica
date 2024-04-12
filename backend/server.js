@@ -7,6 +7,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+// Moods routes
 app.use('/api/moods', require('./routes/moods'));
 
 // Start server
