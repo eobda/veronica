@@ -1,4 +1,5 @@
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from 'react-hook-form'
+import axios from 'axios'
 
 type Inputs = {
   name: string
@@ -10,7 +11,9 @@ function MoodForm() {
     handleSubmit
   } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    axios.post('http://localhost:8080/api/moods', data)
+  }
 
   const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
