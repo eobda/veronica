@@ -3,10 +3,12 @@ const db = require('../connection');
 // Insert mood to db
 const addMood = function(mood) {
   const queryString = `INSERT INTO moods (name, user_id, date_added) VALUES ($1, $2, $3) RETURNING name;`;
-  const queryParams = [mood.name, mood.user_id, mood.date];
+  const queryParams = [mood.name, mood.user_id, mood.date_added];
 
-  return db.query(queryString, queryParams)
+  return db
+    .query(queryString, queryParams)
     .then((data) => {
+      console.log(data.rows[0]);
       return data.rows[0];
     })
     .catch((error) => {
