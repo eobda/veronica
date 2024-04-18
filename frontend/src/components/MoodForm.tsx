@@ -5,7 +5,7 @@ type Inputs = {
   name: string
 }
 
-function MoodForm() {
+function MoodForm({ today }: { today: string }) {
   const {
     register,
     handleSubmit
@@ -15,7 +15,7 @@ function MoodForm() {
     axios.post('http://localhost:8080/api/moods', data)
   }
 
-  const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
+  // const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
   return (
     <>

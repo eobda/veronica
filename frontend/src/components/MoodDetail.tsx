@@ -1,7 +1,7 @@
-function MoodDetail() {
+function MoodDetail({ today }: { today: string }) {
   return (
     <>
-      <h1>Mood detail page</h1>
+      Today is {`${today}`}.
     </>
   )
 }

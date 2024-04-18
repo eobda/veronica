@@ -1,10 +1,13 @@
 import './App.css'
-import MoodForm from './components/MoodForm';
+import MoodDetail from './components/MoodDetail';
+// import MoodForm from './components/MoodForm';
 
 function App() {
+  const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
+
   return (
     <>
-      <MoodForm />
+      <MoodDetail today={today} />
     </>
   )
 }
