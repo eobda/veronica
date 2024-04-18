@@ -18,7 +18,10 @@ function MoodForm({ today }: { today: string }) {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Today is {`${today}`}. I feel</label>
+        <label>
+          Today is {`${today}`}.<br />
+          I feel
+        </label>
         <input {...register('name', { required: 'Enter your mood', maxLength: 255 })} />
         <button type="submit">Enter</button>
       </form>
