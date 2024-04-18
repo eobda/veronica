@@ -15,8 +15,6 @@ function MoodForm({ today }: { today: string }) {
     axios.post('http://localhost:8080/api/moods', data)
   }
 
-  // const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
-
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
