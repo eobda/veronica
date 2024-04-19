@@ -1,14 +1,17 @@
+import { useState } from 'react';
 import './App.css'
 import MoodDetail from './components/MoodDetail';
 import MoodForm from './components/MoodForm';
 
 function App() {
+  const [todayMood, setTodayMood] = useState('')
+
   const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
   return (
     <>
-      <MoodForm today={today} />
-      <MoodDetail today={today} />
+      {todayMood ? <MoodDetail today={today} />
+      : <MoodForm today={today} setTodayMood={setTodayMood} />}
     </>
   )
 }
