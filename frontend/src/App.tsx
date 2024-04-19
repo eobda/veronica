@@ -4,7 +4,7 @@ import MoodDetail from './components/MoodDetail';
 import MoodForm from './components/MoodForm';
 
 function App() {
-  const [todayMood, setTodayMood] = useState('')
+  const [todayMood, setTodayMood] = useState<string>('')
 
   const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
