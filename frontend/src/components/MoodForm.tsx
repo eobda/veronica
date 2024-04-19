@@ -14,6 +14,7 @@ function MoodForm({ today, setTodayMood }: { today: string, setTodayMood: (today
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     axios.post('http://localhost:8080/api/moods', formData)
       .then((response) => setTodayMood(response.data.name))
+      .catch((error) => console.log(error))
   }
 
   return (
