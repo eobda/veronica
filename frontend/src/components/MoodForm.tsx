@@ -11,8 +11,9 @@ function MoodForm({ today }: { today: string }) {
     handleSubmit
   } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios.post('http://localhost:8080/api/moods', data)
+  const onSubmit: SubmitHandler<Inputs> = (formData) => {
+    axios.post('http://localhost:8080/api/moods', formData)
+      .then((response) => console.log(response.data))
   }
 
   return (

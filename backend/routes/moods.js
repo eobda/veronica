@@ -10,9 +10,9 @@ router.post("/", async (req, res) => {
     newMood.user_id = 1; // to be updated once login/cookies are implemented
     newMood.date_added = new Date();
 
-    await addMood(newMood);
+    const response = await addMood(newMood);
     console.log('Mood added');
-    res.status(201).send();
+    res.status(201).send(response);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
