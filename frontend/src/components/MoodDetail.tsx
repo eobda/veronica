@@ -1,11 +1,9 @@
-function MoodDetail({ today }: { today: string }) {
-
-  const mood: string = 'chill' // test mood
+function MoodDetail({ today, todayMood }: { today: string, todayMood: string }) {
 
   return (
     <>
       Today is {`${today}`}.<br />
-      I feel {`${mood}`}.
+      I feel {`${todayMood}`}.
     </>
   )
 }

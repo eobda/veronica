@@ -10,8 +10,17 @@ function App() {
 
   return (
     <>
-      {todayMood ? <MoodDetail today={today} />
-      : <MoodForm today={today} setTodayMood={setTodayMood} />}
+      {todayMood ?
+        <MoodDetail
+          today={today}
+          todayMood={todayMood}
+        />
+      :
+        <MoodForm
+          today={today}
+          setTodayMood={setTodayMood}
+        />
+      }
     </>
   )
 }
