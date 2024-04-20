@@ -4,7 +4,7 @@ VALUES
   (
     'happy',
     1,
-    CURRENT_DATE
+    CURRENT_DATE - 3
   );
 
 INSERT INTO
@@ -13,5 +13,5 @@ VALUES
   (
     'tired',
     1,
-    CURRENT_DATE
+    CURRENT_DATE - 2
   );
