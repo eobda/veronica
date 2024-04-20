@@ -1,5 +1,10 @@
 const db = require('../connection');
 
+// Get mood for certain date in db
+const getMoodByDateAdded = async function(date) {
+  return '';
+};
+
 // Insert mood to db
 const addMood = function(mood) {
   const queryString = `INSERT INTO moods (name, user_id, date_added) VALUES ($1, $2, $3) RETURNING name;`;
