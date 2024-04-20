@@ -7,8 +7,8 @@ const getMoodByDateAdded = async function(date) {
 
 // Insert mood to db
 const addMood = function(mood) {
-  const queryString = `INSERT INTO moods (name, user_id, date_added) VALUES ($1, $2, $3) RETURNING name;`;
-  const queryParams = [mood.name, mood.user_id, mood.date_added];
+  const queryString = `INSERT INTO moods (name, user_id, date_added) VALUES ($1, $2, CURRENT_DATE) RETURNING name;`;
+  const queryParams = [mood.name, mood.user_id];
 
   return db
     .query(queryString, queryParams)

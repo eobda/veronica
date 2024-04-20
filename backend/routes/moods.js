@@ -8,7 +8,6 @@ router.post("/", async (req, res) => {
   try {
     const newMood = req.body; // should contain name
     newMood.user_id = 1; // to be updated once login/cookies are implemented
-    newMood.date_added = new Date();
 
     const response = await addMood(newMood);
     console.log('Mood added');
