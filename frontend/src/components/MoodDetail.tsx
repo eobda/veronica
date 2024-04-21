@@ -1,4 +1,6 @@
-function MoodDetail({ today, todayMood }: { today: string, todayMood: string }) {
+import { AxiosResponse } from 'axios'
+
+function MoodDetail({ today, todayMood }: { today: string, todayMood: AxiosResponse }) {
 
   return (
     <>

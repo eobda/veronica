@@ -1,11 +1,11 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 type Inputs = {
   name: string
 }
 
-function MoodForm({ today, setTodayMood }: { today: string, setTodayMood: (todayMood: string) => void }) {
+function MoodForm({ today, setTodayMood }: { today: string, setTodayMood: (todayMood: AxiosResponse | null) => void }) {
   const {
     register,
     handleSubmit
