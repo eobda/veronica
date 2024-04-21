@@ -1,8 +1,15 @@
 const db = require('../connection');
 
 // Get mood for certain date in db
-const getMoodByDateAdded = async function(date) {
-  return '';
+const getMoodByDateAdded = function(userID) {
+  const queryString = `SELECT name FROM moods WHERE date_added = CURRENT_DATE AND user_id = $1`;
+  const queryParams = [userID];
+
+  return db.query(queryString, queryParams)
+  .then((data) => {
+    console.log(data.rows[0]);
+    return data.rows[0];
+  })
 };
 
 // Insert mood to db
@@ -21,4 +28,4 @@ const addMood = function(mood) {
     })
 };
 
-module.exports = { addMood };
+module.exports = { addMood, getMoodByDateAdded };

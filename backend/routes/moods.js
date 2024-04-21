@@ -1,7 +1,19 @@
 const axios = require('axios');
 const db = require('../db/connection');
-const { addMood } = require('../db/queries/moods');
+const { addMood, getMoodByDateAdded } = require('../db/queries/moods');
 const router = require('express').Router();
+
+// GET mood by name
+router.get("/", async (req, res) => {
+  try {
+    const userID = 1; // to be updated once login/cookies are implemented
+    const todayMood = await getMoodByDateAdded(userID);
+    console.log(todayMood);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+})
 
 // ADD mood
 router.post("/", async (req, res) => {
