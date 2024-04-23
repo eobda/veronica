@@ -19,7 +19,7 @@ function App() {
     getMood()
   }, [])
 
-  const today = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
+  const today: string = new Date().toLocaleString('en-us', { weekday: 'long', month: 'long', day: 'numeric' });
 
   return (
     <>
