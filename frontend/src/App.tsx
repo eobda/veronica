@@ -11,7 +11,6 @@ function App() {
     const getMood = async () => {
       try {
         const { data } = await axios.get('http://localhost:8080/api/moods')
-        console.log(data)
         setTodayMood(data)
       } catch (error) {
         console.error('Error getting mood', error)

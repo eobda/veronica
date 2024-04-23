@@ -4,12 +4,10 @@ interface MoodResponse {
 
 function MoodDetail({ today, todayMood }: { today: string, todayMood: MoodResponse }) {
 
-  const name: string = todayMood.name;
-
   return (
     <>
       Today is {`${today}`}.<br />
-      I feel {`${name}`}.
+      I feel {`${todayMood.name}`}.
     </>
   )
 }
