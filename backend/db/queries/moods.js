@@ -1,15 +1,19 @@
 const db = require('../connection');
 
 // Get mood for certain date in db
-const getMoodByDateAdded = function(userID) {
-  const queryString = `SELECT name FROM moods WHERE date_added = CURRENT_DATE AND user_id = $1`;
+const getTodayMood = function(userID) {
+  const queryString = `SELECT name FROM moods WHERE date_added = CURRENT_DATE AND user_id = $1;`;
   const queryParams = [userID];
 
-  return db.query(queryString, queryParams)
-  .then((data) => {
-    console.log(data.rows[0]);
-    return data.rows[0];
-  })
+  return db
+    .query(queryString, queryParams)
+    .then((data) => {
+      console.log(data.rows[0]);
+      return data.rows[0];
+    })
+    .catch((error) => {
+      console.log(`Error in getTodayMood: ${error.message}`)
+    })
 };
 
 // Get all moods for a certain MONTH in db
@@ -48,4 +52,4 @@ const addMood = function(mood) {
     });
 };
 
-module.exports = { addMood, getMoodByDateAdded };
+module.exports = { addMood, getTodayMood };
