@@ -5,7 +5,7 @@ type Inputs = {
   name: string
 }
 
-function MoodForm({ today, setTodayMood }: { today: string, setTodayMood: (todayMood: AxiosResponse | null) => void }) {
+function MoodForm({ today, setTodayMood }: { today: string, setTodayMood: (todayMood: AxiosResponse) => void }) {
   const {
     register,
     handleSubmit

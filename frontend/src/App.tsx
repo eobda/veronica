@@ -10,8 +10,9 @@ function App() {
   useEffect(() => {
     const getMood = async () => {
       try {
-        const mood = await axios.get<string>('http://localhost:8080/api/moods')
-        setTodayMood(mood)
+        const { data } = await axios.get<AxiosResponse>('http://localhost:8080/api/moods')
+        console.log(data)
+        setTodayMood(data)
       } catch (error) {
         console.error('Error getting mood', error)
       }
