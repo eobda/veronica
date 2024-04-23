@@ -8,7 +8,12 @@ router.get("/", async (req, res) => {
   try {
     const userID = 1; // to be updated once login/cookies are implemented
     const todayMood = await getMoodByDateAdded(userID);
-    console.log(todayMood);
+    if (!todayMood) {
+      console.log('in the no todayMood')
+      res.status(204).json({ name: '' });
+    } else {
+      res.status(200).json(todayMood);
+    }
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
