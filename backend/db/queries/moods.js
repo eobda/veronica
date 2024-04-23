@@ -52,4 +52,8 @@ const addMood = function(mood) {
     });
 };
 
-module.exports = { addMood, getTodayMood };
+module.exports = {
+  addMood,
+  getTodayMood,
+  getMoodByMonth
+};
