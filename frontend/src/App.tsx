@@ -5,7 +5,7 @@ import MoodForm from './components/MoodForm';
 import axios, { AxiosResponse } from 'axios';
 
 function App() {
-  const [todayMood, setTodayMood] = useState<AxiosResponse | null>(null)
+  const [todayMood, setTodayMood] = useState<{ name: string } | null>(null)
 
   useEffect(() => {
     const getMood = async () => {
