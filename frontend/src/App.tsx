@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import MoodDetail from './components/MoodDetail';
 import MoodForm from './components/MoodForm';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 function App() {
   const [todayMood, setTodayMood] = useState<{ name: string } | null>(null)
@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const getMood = async () => {
       try {
-        const { data } = await axios.get<AxiosResponse>('http://localhost:8080/api/moods')
+        const { data } = await axios.get('http://localhost:8080/api/moods')
         console.log(data)
         setTodayMood(data)
       } catch (error) {
