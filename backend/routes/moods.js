@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     console.error(error.message);
     res.status(500).send('Server error');
   }
-})
+});
 
 // ADD mood
 router.post("/", async (req, res) => {
@@ -29,6 +29,16 @@ router.post("/", async (req, res) => {
     const response = await addMood(newMood);
     console.log('Mood added');
     res.status(201).send(response);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// GET mood by year and month
+router.get("/:year/:month", async (req, res) => {
+  try {
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
