@@ -1,6 +1,6 @@
 const axios = require('axios');
 const db = require('../db/connection');
-const { addMood, getTodayMood } = require('../db/queries/moods');
+const { addMood, getTodayMood, getMoodByMonth } = require('../db/queries/moods');
 const router = require('express').Router();
 
 // GET mood by name
@@ -38,7 +38,16 @@ router.post("/", async (req, res) => {
 // GET mood by year and month
 router.get("/:year/:month", async (req, res) => {
   try {
+    const year = Number(req.params.year);
+    const month = Number(req.params.month);
+    // MIN of date range: YYYY-MM-01
+    // MAX of date range: YYYY-MM+1-01
+    const dateRange = [`${year}-${month}-01`, `${year}-${month + 1}-01`];
+    const userID = 1; // to be updated once login/cookies are implemented
 
+    const moods = await getMoodByMonth(userID, dateRange);
+    console.log(moods);
+    res.status(200).json(moods);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
