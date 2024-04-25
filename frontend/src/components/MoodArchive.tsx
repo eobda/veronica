@@ -23,7 +23,7 @@ function MoodArchive({ year, month }: { year: Number, month: number }) {
 
   const moodList = monthMoods.map((mood) => {
     return (
-      <tr>
+      <tr key={mood.id}>
         <td>{mood.date_added}</td>
         <td>{mood.name}</td>
       </tr>
