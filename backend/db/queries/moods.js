@@ -28,8 +28,8 @@ const getMoodByMonth = function(userID, dateRange) {
   return db
     .query(queryString, queryParams)
     .then((data) => {
-      console.log(data.rows[0]);
-      return data.rows[0];
+      console.log(data.rows);
+      return data.rows;
     })
     .catch((error) => {
       console.log(`Error in getMoodByMonth: ${error.message}`);
