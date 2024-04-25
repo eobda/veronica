@@ -12,7 +12,6 @@ function MoodArchive({ year, month }: { year: Number, month: number }) {
     const getMonthMoods = async () => {
       try {
         const { data } = await axios.get(`http://localhost:8080/api/moods/${year}/${month}`)
-        console.log('getMonthMoods:', data)
         setMonthMoods(data)
       } catch (error) {
         console.error('Error fetching moods', error)
