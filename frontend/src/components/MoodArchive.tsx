@@ -34,7 +34,9 @@ function MoodArchive({ year, month }: { year: Number, month: number }) {
     <>
       <h1>Mood Archive</h1>
       <table>
-        {moodList}
+        <tbody>
+          {moodList}
+        </tbody>
       </table>
     </>
   )
