@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-/*
-- use .map to make table for moods returned by a query
-*/
-
 function MoodList(props: any) {
   const [ monthMoods, setMonthMoods ] = useState<any[]>([])
   const { date } = props
