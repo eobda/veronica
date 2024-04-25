@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-function MoodList(props: any) {
+function MoodList(props:
+  { date: {
+      year: number,
+      month: number
+    }
+  }) {
   const [ monthMoods, setMonthMoods ] = useState<any[]>([])
   const { date } = props
 
