@@ -5,7 +5,7 @@ import axios from "axios"
 - use .map to make table for moods returned by a query
 */
 
-function MoodArchive({ year, month }: { year: Number, month: number }) {
+function MoodList({ year, month }: { year: number, month: number }) {
   const [ monthMoods, setMonthMoods ] = useState<any[]>([])
 
   useEffect(() => {
@@ -30,15 +30,12 @@ function MoodArchive({ year, month }: { year: Number, month: number }) {
   })
 
   return (
-    <>
-      <h1>Mood Archive</h1>
-      <table>
-        <tbody>
-          {moodList}
-        </tbody>
-      </table>
-    </>
+    <table>
+      <tbody>
+        {moodList}
+      </tbody>
+    </table>
   )
 }
 
-export default MoodArchive
+export default MoodList
