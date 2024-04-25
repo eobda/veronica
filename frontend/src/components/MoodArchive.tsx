@@ -12,7 +12,9 @@ function MoodArchive() {
       <h1>Mood Archive</h1>
       <MoodList date={date} />
       <div>
-        <button onClick={() => {goPrevMonth()}}>Last Month</button> ||       <button onClick={() => {goNextMonth()}}>Next Month</button>
+        <span onClick={() => {goPrevMonth()}}>Last Month</span>
+        &nbsp;||&nbsp;
+        <span onClick={() => {goNextMonth()}}>Next Month</span>
       </div>
     </>
   )
