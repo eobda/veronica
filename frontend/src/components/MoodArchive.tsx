@@ -6,14 +6,14 @@ import axios from "axios"
 */
 
 function MoodArchive({ year, month }: { year: Number, month: number }) {
-  const [ displayMoods, setDisplayMoods ] = useState<any[]>([])
+  const [ monthMoods, setMonthMoods ] = useState<any[]>([])
 
   useEffect(() => {
     const getMonthMoods = async () => {
       try {
         const { data } = await axios.get(`http://localhost:8080/api/moods/${year}/${month}`)
         console.log('getMonthMoods:', data)
-        setDisplayMoods(data)
+        setMonthMoods(data)
       } catch (error) {
         console.error('Error fetching moods', error)
       }
@@ -21,7 +21,7 @@ function MoodArchive({ year, month }: { year: Number, month: number }) {
     getMonthMoods();
   }, []);
 
-  const moodList = displayMoods.map((mood) => {
+  const moodList = monthMoods.map((mood) => {
     return (
       <tr>
         <td>{mood.date_added}</td>
