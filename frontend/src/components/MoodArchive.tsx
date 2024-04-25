@@ -4,6 +4,8 @@ import axios from "axios"
 
 function MoodArchive() {
   const [ date, setDate ] = useState<{ year: number, month: number }>({ year: 2024, month: 4 }) // to do: set default for year and month when accessed from front page
+  const dateString: string = new Date(date.year, date.month - 1, 1)
+    .toLocaleString('default', {month: 'long', year: 'numeric'})
 
   const goPrevMonth = () => {setDate({...date, month: date.month - 1})}
   const goNextMonth = () => {setDate({...date, month: date.month + 1})}
@@ -25,10 +27,16 @@ function MoodArchive() {
   return (
     <>
       <h1>Mood Archive</h1>
-      {monthMoods.length > 0 ?
+      
+      <h2>{dateString}</h2>
+      
+      <div>
+        {monthMoods.length > 0 ?
         <MoodList monthMoods={monthMoods} />
         :
-        <div>No moods found for this month</div>}
+        <span>No moods found for this month</span>}
+      </div>
+
       <div>
         <span onClick={() => {goPrevMonth()}}>Last Month</span>
         &nbsp;||&nbsp;
