@@ -14,3 +14,5 @@ const addUser = function(user) {
       console.log(`Error in addUser: ${error.message}`);
     });
 };
+
+module.exports = { addUser };
