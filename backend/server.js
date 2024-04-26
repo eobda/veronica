@@ -10,6 +10,8 @@ app.use(express.json());
 
 // Moods routes
 app.use('/api/moods', require('./routes/moods'));
+// Users routes
+app.use('/api/users', require('./routes/users'));
 
 // Start server
 app.listen(port, () => {
