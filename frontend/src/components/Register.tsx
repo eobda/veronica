@@ -23,10 +23,17 @@ function Register() {
     <>
     <h2>Sign Up</h2>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Username</label>
-      <input {...register('username')} />
-      <label>Password</label>
-      <input {...register('password')} />
+      <label htmlFor='username'>Username</label>
+      <input
+        id='username'
+        {...register('username')}
+      />
+      <label htmlFor='password'>Password</label>
+      <input
+        id='password'
+        {...register('password')}
+        type='password'
+      />
       <button type="submit">Enter</button>
     </form>
     </>
