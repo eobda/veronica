@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 type Inputs = {
@@ -13,7 +14,9 @@ function Register() {
   } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    console.log(formData)
+    axios.post('http://localhost:8080/api/users/new', formData)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error))
   }
 
   return (
