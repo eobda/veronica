@@ -24,6 +24,7 @@ function Register() {
       <input {...register('username')} />
       <label>Password</label>
       <input {...register('password')} />
+      <button type="submit">Enter</button>
     </form>
     </>
   )
