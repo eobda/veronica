@@ -15,7 +15,7 @@ function Register() {
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     axios.post('http://localhost:8080/api/users/new', formData)
-      .then((response) => console.log(response.data))
+      .then((response) => localStorage.setItem('user_id', response.data.id))
       .catch((error) => console.log(error))
   }
 
