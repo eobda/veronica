@@ -15,4 +15,22 @@ const addUser = function(user) {
     });
 };
 
+const getUserByUsername = function(username) {
+  const queryString = `SELECT * FROM users WHERE username = $1;`
+  const queryParams = [username];
+
+  return db
+    .query(queryString, queryParams)
+    .then((data) => {
+      // If username does not exist in database, return message
+      if (data.rows.length == 0) {
+        return 'Username not found';
+      }
+      return data.rows[0];
+    })
+    .catch((error) => {
+      console.log(`Error in getUserByUsername: ${error.message}`)
+    });
+};
+
 module.exports = { addUser };
