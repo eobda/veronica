@@ -20,10 +20,10 @@ router.post("/login", async (req, res) => {
     const userInfo = await getUserByUsername(username);
     // user auth to be updated
     if (userInfo == 'Username not found') {
-      return userInfo;
+      res.status(404).send(userInfo);
     }
     if (password !== userInfo.password) {
-      return 'Incorrect password';
+      res.status(403).send('Incorrect password');
     }
     res.status(200).send(userInfo);
   } catch (error) {
