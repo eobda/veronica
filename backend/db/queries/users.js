@@ -33,4 +33,4 @@ const getUserByUsername = function(username) {
     });
 };
 
-module.exports = { addUser };
+module.exports = { addUser, getUserByUsername };
