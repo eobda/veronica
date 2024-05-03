@@ -3,7 +3,7 @@ const db = require('../connection');
 // Add new user to db
 const addUser = function(user) {
   const queryString = `INSERT INTO users (username, name, password) VALUES ($1, $2, $3) RETURNING id;`
-  const queryParams = [user.username, user.username, user.password];
+  const queryParams = [user.username.toLowerCase(), user.username, user.password];
 
   return db
     .query(queryString, queryParams)
@@ -17,7 +17,7 @@ const addUser = function(user) {
 
 const getUserByUsername = function(username) {
   const queryString = `SELECT * FROM users WHERE username = $1;`
-  const queryParams = [username];
+  const queryParams = [username.toLowerCase()];
 
   return db
     .query(queryString, queryParams)
