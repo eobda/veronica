@@ -15,7 +15,7 @@ router.post("/new", async (req, res) => {
     res.status(201).send(newUser);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).send({message: 'Server error'});
   };
 });
 
@@ -29,12 +29,12 @@ router.post("/login", async (req, res) => {
       res.status(404).send(userInfo);
     }
     if (!bcrypt.compareSync(req.body.password, user.password)) {
-      res.status(403).send('Incorrect password');
+      res.status(403).send({message: 'Incorrect password'});
     }
     res.status(200).send(userInfo);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).send({message: 'Server error'});
   };
 });
 
