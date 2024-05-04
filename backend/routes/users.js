@@ -28,7 +28,7 @@ router.post("/login", async (req, res) => {
     if (userInfo == 'Username not found') {
       res.status(404).send(userInfo);
     }
-    if (password !== userInfo.password) {
+    if (!bcrypt.compareSync(req.body.password, user.password)) {
       res.status(403).send('Incorrect password');
     }
     res.status(200).send(userInfo);
