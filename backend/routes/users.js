@@ -22,13 +22,13 @@ router.post("/new", async (req, res) => {
 // Log in user
 router.post("/login", async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username } = req.body;
     const userInfo = await getUserByUsername(username);
     // user auth to be updated
     if (userInfo == 'Username not found') {
       res.status(404).send(userInfo);
     }
-    if (!bcrypt.compareSync(req.body.password, user.password)) {
+    if (!bcrypt.compareSync(req.body.password, userInfo.password)) {
       res.status(403).send({message: 'Incorrect password'});
     }
     res.status(200).send(userInfo);
