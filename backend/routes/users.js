@@ -1,11 +1,17 @@
 const axios = require('axios');
 const { addUser, getUserByUsername } = require('../db/queries/users');
 const router = require('express').Router();
+const bcrypt = require('bcryptjs');
 
 // Register user
 router.post("/new", async (req, res) => {
   try {
-    const newUser = await addUser(req.body);
+    const userInfo = {
+      username: req.body.username,
+      name: req.body.username,
+      password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+    };
+    const newUser = await addUser(userInfo);
     res.status(201).send(newUser);
   } catch (error) {
     console.error(error.message);
