@@ -11,8 +11,13 @@ router.post("/new", async (req, res) => {
       name: req.body.username,
       password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
     };
-    const newUser = await addUser(userInfo);
-    res.status(201).send(newUser);
+    const userCheck = await getUserByUsername(userInfo.username);
+    if (userCheck === 'Username not found') {
+      res.status(400).send({message: 'Username already exists'})
+    } else {
+      const newUser = await addUser(userInfo);
+      res.status(201).send(newUser);
+    }
   } catch (error) {
     console.error(error.message);
     res.status(500).send({message: 'Server error'});
