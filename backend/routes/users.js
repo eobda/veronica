@@ -13,7 +13,7 @@ router.post("/new", async (req, res) => {
     };
     const userCheck = await getUserByUsername(userInfo.username);
     if (userCheck === 'Username not found') {
-      res.status(400).send({message: 'Username already exists'})
+      res.status(400).send({message: 'A user with that username already exists'})
     } else {
       const newUser = await addUser(userInfo);
       res.status(201).send(newUser);
